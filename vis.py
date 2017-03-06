@@ -22,7 +22,7 @@ def runModel(trIn, trOut, teIn, teOut, epochs, learnRate):
 	modelOutput = tf.placeholder("float")
 	network = model(modelInput);
 
-	cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=modelOutput, logits=network) )
+	cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=modelOutput, logits=network))
 	train = tf.train.GradientDescentOptimizer(learnRate).minimize(cost)
 	predict = tf.argmax(network, 1)
 
